@@ -1,4 +1,4 @@
-export const NAME_PATTERN = /^[A-Za-z][A-Za-z0-9_]{2,29}$/m;
+export const NAME_PATTERN = /^[A-Za-z][A-Za-z0-9_]+(?:[ _.-][A-Za-z0-9]+)*$/m;
 export const TEL_PATTERN = /^\+?\d+(-\d+)*$/m;
 
 export const REQUEST_DELAY = 1000;
