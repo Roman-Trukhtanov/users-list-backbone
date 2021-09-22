@@ -1,0 +1,67 @@
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: $root-font-size;
+}
+
+body {
+  font-family: $default-font-family;
+  font-weight: 400;
+  text-rendering: optimizeLegibility;
+  text-size-adjust: 100%;
+  color: $color-white;
+  -webkit-tap-highlight-color: transparent;
+  background-color: $color-bg-gray;
+
+  &._pointer {
+    cursor: pointer;
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+img,
+video {
+  height: auto;
+  max-width: 100%;
+}
+
+button:not([disabled]),
+a[role='button']:not([disabled]) {
+  cursor: pointer;
+}
+
+// COMMON
+#app {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.loading-text {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: 0;
+  font-size: rem(24);
+  line-height: 1.2;
+  transform: translate3d(-50%, -50%, 0);
+}
+
+.adding-text,
+.saving-text {
+  margin: 0;
+}

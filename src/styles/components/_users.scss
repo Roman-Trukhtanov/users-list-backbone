@@ -1,0 +1,128 @@
+.users {
+  position: relative;
+
+  .form-label {
+    margin: 0;
+    color: $color-white;
+  }
+
+  .form-label-text {
+    margin: 0 0 rem(8);
+    cursor: pointer;
+  }
+}
+
+.users__title-wrap {
+  margin-bottom: rem(32);
+}
+
+.users__title {
+  margin: 0;
+  text-align: center;
+}
+
+.users__main-wrap {
+  position: relative;
+  margin: 0 auto;
+  padding: 0 rem(16);
+  max-width: rem(1024 + 32);
+  min-height: rem(400);
+
+  @include min-screen($breakpoint-lg) {
+    min-height: rem(500);
+  }
+}
+
+.users__container {
+  max-width: 100%;
+}
+
+.users__controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: rem(8);
+}
+
+.users__add-user-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  margin: 0 rem(-12);
+
+  > div {
+    margin: 0 rem(12);
+  }
+
+  @include max-screen($breakpoint-sm) {
+    flex-direction: column;
+
+    > div {
+      margin-bottom: rem(12);
+    }
+  }
+}
+
+.users__controls {
+  padding-top: rem(24);
+
+  @include min-screen($breakpoint-sm) {
+    padding-top: rem(32);
+  }
+}
+
+.users__table-wrap {
+  @include max-screen($breakpoint-lg) {
+    overflow-x: auto;
+  }
+}
+
+#users-table {
+  min-width: rem(768);
+  tr {
+    display: flex;
+
+    td,
+    th {
+      display: flex;
+      align-items: flex-start;
+    }
+
+    td:nth-child(1),
+    th:nth-child(1) {
+      width: 10%;
+    }
+
+    td:nth-child(2),
+    th:nth-child(2) {
+      width: 30%;
+    }
+
+    td:nth-child(3),
+    th:nth-child(3) {
+      width: 30%;
+    }
+
+    td:nth-child(4),
+    th:nth-child(4) {
+      width: 30%;
+    }
+  }
+
+  // MDB FORM
+  .form-label {
+    margin-bottom: 0;
+
+    input {
+      color: black;
+    }
+  }
+
+  .btn__svg {
+    vertical-align: rem(-1.5);
+  }
+
+  .saving-text {
+    color: $color-black;
+  }
+}
