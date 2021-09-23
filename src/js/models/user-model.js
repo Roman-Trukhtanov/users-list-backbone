@@ -1,7 +1,9 @@
 import Backbone from 'backbone';
 import {
   ERROR_NAME_MSG,
-  ERROR_TEL_MSG,
+  ERROR_TEL_MSG, MAX_NAME_LENGTH,
+  MAX_TEL_LENGTH,
+  MIN_TEL_LENGTH,
   NAME_PATTERN,
   TEL_PATTERN,
 } from '../const';
@@ -35,7 +37,7 @@ class UserModel extends Backbone.Model {
 
     if (
       !name.value ||
-      !name.value.trim().length ||
+      name.value.trim().length >= MAX_NAME_LENGTH ||
       !NAME_PATTERN.test(name.value.trim())
     ) {
       this.setIsCorrectModelParam('name', false);
@@ -46,7 +48,8 @@ class UserModel extends Backbone.Model {
 
     if (
       !tel.value ||
-      tel.value.length < 7 ||
+      tel.value.length < MIN_TEL_LENGTH ||
+      tel.value.length >= MAX_TEL_LENGTH ||
       !TEL_PATTERN.test(tel.value.trim())
     ) {
       this.setIsCorrectModelParam('tel', false);

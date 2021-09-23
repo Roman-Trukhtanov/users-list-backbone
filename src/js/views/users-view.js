@@ -6,6 +6,9 @@ import {
   ADDING_MSG,
   ERROR_NAME_MSG,
   ERROR_TEL_MSG,
+  MAX_NAME_LENGTH,
+  MAX_TEL_LENGTH,
+  MIN_TEL_LENGTH,
   NAME_PATTERN,
   REQUEST_DELAY,
   TEL_PATTERN,
@@ -87,7 +90,11 @@ class UsersView extends Backbone.View {
     const nameErrMsgElem = this.getErrorMsgElem(this.baseNameInput);
     const telErrMsgElem = this.getErrorMsgElem(this.baseTelInput);
 
-    if (!name || !name.trim().length || !NAME_PATTERN.test(name.trim())) {
+    if (
+      !name ||
+      name.trim().length >= MAX_NAME_LENGTH ||
+      !NAME_PATTERN.test(name.trim())
+    ) {
       if (!nameErrMsgElem) {
         this.addErrorMsgToInput(this.baseNameInput, ERROR_NAME_MSG);
       }
@@ -97,7 +104,12 @@ class UsersView extends Backbone.View {
       nameErrMsgElem.remove();
     }
 
-    if (!tel || tel.length < 7 || !TEL_PATTERN.test(tel.trim())) {
+    if (
+      !tel ||
+      tel.length < MIN_TEL_LENGTH ||
+      tel.length >= MAX_TEL_LENGTH ||
+      !TEL_PATTERN.test(tel.trim())
+    ) {
       if (!telErrMsgElem) {
         this.addErrorMsgToInput(this.baseTelInput, ERROR_TEL_MSG);
       }
